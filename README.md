@@ -1,16 +1,45 @@
-# React + Vite
+# Role-Based Navbar & UI Access Control (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+This project demonstrates a **Role-Based Navigation and UI Access Control System** built using **React and React Router**.  
+The application dynamically renders navigation menus and restricts page access based on the logged-in user’s role.
 
-Currently, two official plugins are available:
+It is designed to reflect **real-world enterprise applications** such as HRMS, ATS, Admin Dashboards, and Portals.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Key Features
+- Role-based dynamic navbar rendering
+- Protected routes using permission logic
+- Separate dashboards for Admin, HR, and Candidate
+- Unauthorized access handling
+- Centralized authentication state using Context API
+- Clean and scalable project structure
+- Built using modern React (Vite + React Router v6)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 👥 User Roles & Access
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Role | Visible Menus | Accessible Routes |
+|----|----|----|
+| Admin | Admin Panel | `/admin` |
+| HR | HR Dashboard | `/hr` |
+| Candidate | Job Applications | `/candidate` |
+
+✔ Menus are shown dynamically  
+✔ Routes are protected from unauthorized access  
+✔ Direct URL access is restricted  
+
+---
+
+## 🧠 How Role-Based Access Works
+
+1. User logs in and selects a role
+2. Role is stored in global state using Context API
+3. Navbar renders menu items based on the user role
+4. Routes are protected using a `ProtectedRoute` component
+5. Unauthorized users are redirected to an error page
+6. Root route (`/`) redirects users to their role-specific dashboard
+
+---
